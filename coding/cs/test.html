@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>test-공지사항</title>
+        <style>
+            body {
+                background: #000;
+                color: #fff;
+                font-family: 'Noto Sans KR', sans-serif;
+            }
+            .notice-wrap {
+                max-width: 1200px;
+                margin: 60px auto 0;
+            }
+            h2 {
+                color: #00b6ff;
+            }
+            .notice-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 40px 0;
+                margin-bottom: 40px;
+            }
+            .notice-item {
+                width: 25%;
+                padding: 24px;
+                box-sizing: border-box;
+            }
+            .notice-item .title {
+                color: #00b6ff;
+                font-weight: bold;
+                margin-bottom: 12px;
+            }
+            .notice-item .desc,
+            .notice-item .date {
+                color: #ccc;
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+            .pagination {
+                text-align: center;
+            }
+            .pagination-btn {
+                display: inline-block;
+                min-width: 32px;
+                padding: 4px 12px;
+                margin: 0 4px;
+                color: #888;
+                cursor: pointer;
+                border-bottom: 2px solid transparent;
+                transition: border-color 0.2s, color 0.2s;
+                font-size: 18px;
+                background: none;
+            }
+            .pagination-btn.active {
+                color: #00b6ff;
+                border-bottom: 2px solid #00b6ff;
+                font-weight: bold;
+            }
+            .pagination-btn:disabled {
+                color: #222;
+                cursor: default;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="notice-wrap">
+            <h2>공지사항</h2>
+            <div id="notice-list" class="notice-list"></div>
+            <div id="pagination" class="pagination"></div>
+        </div>
+
+        <script>
+            // 샘플 공지사항 데이터 (32개, 1~32번)
+            const notices = Array.from({ length: 32 }, (_, i) => ({
+                title: `공지사항 제목입니다. (${i + 1})`,
+                desc: '공지사항 내용입니다.',
+                date: '2025-05-19',
+            }));
+
+            // 페이지당 8개씩, 총 4페이지
+            const perPage = 8;
+            let currentPage = 1;
+
+            function renderNotices() {
+                const listEl = document.getElementById('notice-list');
+                listEl.innerHTML = '';
+
+                const startIdx = (currentPage - 1) * perPage;
+                const endIdx = startIdx + perPage;
+                const pageItems = notices.slice(startIdx, endIdx);
+
+                pageItems.forEach((item) => {
+                    const el = document.createElement('div');
+                    el.className = 'notice-item';
+                    el.innerHTML = `
+          <div class="title">${item.title}</div>
+          <div class="desc">${item.desc}</div>
+          <div class="date">${item.date}</div>
+        `;
+                    listEl.appendChild(el);
+                });
+            }
+
+            function renderPagination() {
+                const totalPages = Math.ceil(notices.length / perPage);
+                const pagEl = document.getElementById('pagination');
+                pagEl.innerHTML = '';
+
+                // 맨앞(<<)
+                const firstBtn = document.createElement('button');
+                firstBtn.className = 'pagination-btn';
+                firstBtn.innerHTML = '&laquo;';
+                firstBtn.onclick = () => {
+                    currentPage = 1;
+                    update();
+                };
+                firstBtn.disabled = currentPage === 1;
+                pagEl.appendChild(firstBtn);
+
+                // 페이지 번호 (1~totalPages)
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = 'pagination-btn' + (i === currentPage ? ' active' : '');
+                    btn.innerText = i;
+                    btn.onclick = () => {
+                        currentPage = i;
+                        update();
+                    };
+                    pagEl.appendChild(btn);
+                }
+
+                // 맨끝(>>)
+                const lastBtn = document.createElement('button');
+                lastBtn.className = 'pagination-btn';
+                lastBtn.innerHTML = '&raquo;';
+                lastBtn.onclick = () => {
+                    currentPage = totalPages;
+                    update();
+                };
+                lastBtn.disabled = currentPage === totalPages;
+                pagEl.appendChild(lastBtn);
+            }
+
+            function update() {
+                renderNotices();
+                renderPagination();
+            }
+
+            // 초기 실행
+            update();
+        </script>
+    </body>
+</html>

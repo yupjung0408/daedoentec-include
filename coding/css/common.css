@@ -1,0 +1,560 @@
+@charset 'utf-8';
+
+:root {
+    font-size: 62.5%;
+
+    /* color */
+    --logo-main: #006fbc;
+    --logo-sub-01: #00a0e9;
+    --logo-sub-02: #8fd3f5;
+    --logo-gray: #9fa0a0;
+    --gray: #666666;
+    --bk: #212121;
+    --fff: #fff;
+    --ddd: #dddddd;
+    --bg-01: #f9f9f9;
+    --bg-02: #f4fbfe;
+    --main-80: #001626;
+
+    /* font */
+
+    /* Title */
+    --title-80-size: 8rem;
+    --title-80-line-height: 1;
+    --title-80-weight: 800;
+
+    --title-64-size: 6.4rem;
+    --title-64-line-height: 1.25;
+    --title-64-weight: 700;
+
+    /* Subtitle */
+    --sub-title-48-size: 4.8rem;
+    --sub-title-48-line-height: 1.25;
+    --sub-title-48-weight: 700;
+
+    --sub-title-32-size: 3.2rem;
+    --sub-title-32-line-height: 1.375;
+    --sub-title-32-weight: 700;
+
+    --sub-title-24-size: 2.4rem;
+    --sub-title-24-line-height: 1.333;
+    --sub-title-24-weight: 600;
+
+    /* Paragraph - 18 */
+    --p-18-size: 1.8rem;
+    --p-18-line-height: 1.444;
+    --p-18-weight: 500;
+    --p-18-sb-weight: 600;
+
+    /* Paragraph - 16 */
+    --p-16-size: 1.6rem;
+    --p-16-line-height: 1.5;
+    --p-16-weight: 400;
+    --p-16-sb-weight: 600;
+
+    /* Paragraph - 14 */
+    --p-14-size: 1.4rem;
+    --p-14-line-height: 1.429;
+    --p-14-weight: 400;
+    --p-14-sb-weight: 600;
+}
+
+html,
+body {
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+body {
+    font: 1.4rem 'Pretendard', sans-serif;
+    word-break: keep-all;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer; /* cup */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--logo-main);
+}
+
+.more-view {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.more-view:hover {
+    font-weight: var(--p-16-sb-weight);
+    color: var(--logo-main) !important;
+    transition: color 0.5s;
+}
+
+.more-view:hover::after {
+    border: 1px solid var(--logo-main);
+    background: url(/coding/images/common/moreview-hover.svg) no-repeat 50%;
+    transition: 0.5s;
+}
+
+.more-view::after {
+    content: '';
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid var(--logo-gray);
+    border-radius: 50%;
+    background: url(/coding/images/common/moreview.svg) no-repeat 50%;
+}
+
+hr,
+.hidden {
+    position: absolute;
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+.container {
+    width: 144rem;
+    margin: 0 auto;
+}
+
+/* s: header */
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: 0.4s;
+    background: rgba(0, 0, 0, 0.2); /* 흰색 배경에서 헤더 보이게 */
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1rem;
+    background-color: var(--bg-01); /* 원하는 선 색상 */
+    opacity: 0;
+    transition: opacity 0.3s ease 0s;
+    z-index: 1;
+}
+
+header.active::before {
+    opacity: 1;
+    transition: opacity 0.3s ease 0.4s; /* ::after 등장 이후에 나타나도록 딜레이 */
+}
+
+header::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 29rem;
+    background: #fff;
+    opacity: 0;
+
+    transform: translateY(-29rem); /* 처음엔 위에 있음 */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+header.active::after {
+    transform: translateY(0); /* 아래로 내려옴 */
+    opacity: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    z-index: 1;
+}
+
+.logo img {
+    width: 20.3rem;
+    height: 2.8rem;
+}
+
+.gnb {
+    display: flex;
+    z-index: 1;
+}
+
+.gnb > li {
+    position: relative;
+}
+
+.gnb > li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; /* 밑줄 위치 */
+    width: 100%;
+    height: 0.2rem; /* 밑줄 두께 */
+    background-color: var(--logo-main); /* 원하는 색상 */
+    transform: scaleX(0); /* 처음엔 안 보이게 */
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.gnb > li:hover::after {
+    transform: scaleX(1); /* 호버 시 밑줄 나타남 */
+}
+
+.gnb > li > a {
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--fff);
+
+    padding: 3.4rem 2.4rem 3rem;
+    display: block;
+    text-align: center;
+    width: 14.2rem;
+}
+
+.gnb > li:hover > a {
+    color: var(--logo-main) !important;
+}
+
+header.active .gnb > li > a {
+    color: var(--bk); /* 흰 배경 위에서 잘 보이는 색으로 설정 */
+}
+
+.submenu {
+    /* display: none; */
+    position: absolute;
+    top: calc(100% + 3.4rem); /* 부모 li 높이 + 34px */
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    opacity: 0;
+    transition: 0.4s;
+
+    pointer-events: none; /* 미리 떨어지지 않도록 방지 */
+}
+
+header.active .submenu {
+    opacity: 1;
+    pointer-events: auto; /* 보일때 선택되도록 */
+}
+
+.submenu li a {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--bk);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submenu li a:hover {
+    /* font-weight: var(--p-16-sb-weight); */
+    color: var(--logo-main);
+}
+
+.lang {
+    z-index: 1;
+    position: relative;
+}
+
+.lang-toggle {
+    width: 9.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.lang-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.lang-arrow {
+    width: 1rem;
+    height: 0.6rem;
+    transition: transform 0.3s ease;
+}
+
+/* 회전된 화살표 */
+.lang-arrow.rotated {
+    transform: rotate(180deg); /* 아래 → 위 */
+}
+
+/* lang 아이콘 반전 처리 */
+header.active .lang-icon,
+header.active .lang-arrow {
+    filter: invert(1);
+    /* transition: filter 0.3s ease; */
+}
+
+.lang-menu {
+    background: var(--bg-01);
+    position: absolute;
+    top: calc(100% + 1.2rem); /* 부모 높이 + 12px */
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.6rem 0;
+
+    opacity: 0;
+    transform: translateY(-1rem);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lang-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.lang-menu a {
+    font-size: var(--p-14-size);
+    font-weight: var(--p-14-weight);
+    line-height: var(--p-14-line-height);
+
+    display: block;
+    text-align: center;
+}
+
+/* //e: header */
+
+/* s: footer */
+
+footer {
+    background: var(--main-80);
+    font-size: var(--p-14-size);
+    font-weight: var(--p-14-weight);
+    line-height: var(--p-14-line-height);
+    color: var(--logo-gray);
+}
+
+footer .container {
+    padding: 8rem 0;
+    position: relative;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+.footer-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-0.5px);
+    width: 0.1rem;
+    background-color: #666;
+    opacity: 0.4;
+}
+
+.footer-info {
+    width: 50%;
+}
+
+.footer-text {
+    margin-top: 4.8rem;
+}
+
+.footer-text strong {
+    font-weight: var(--p-14-sb-weight);
+}
+
+.footer-dl {
+    margin-top: 1.2rem;
+}
+
+.footer-dl dt {
+    color: var(--logo-gray);
+}
+
+.footer-dl dd {
+    color: var(--gray);
+}
+
+.info-row {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.info-row-bottom {
+    margin-top: 0.6rem;
+}
+
+.footer-nav {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    padding-left: 8.5rem;
+}
+
+.footer-nav .footer-menu:first-of-type {
+    width: 9.4rem;
+}
+.footer-menu h4 {
+    color: var(--fff);
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-weight);
+    line-height: var(--p-18-line-height);
+}
+
+.footer-menu ul {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer-menu ul li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem 0.6rem;
+}
+
+/* s: footer-bottom */
+
+.footer-bottom {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.address-line {
+    display: flex;
+}
+
+.address .address-line + .address-line {
+    margin-top: 0.6rem;
+}
+
+.address-line span {
+    font-weight: var(--p-14-sb-weight);
+    margin-right: 1.2rem;
+}
+
+.info-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.info-group dt {
+    margin-right: 0.6rem;
+    color: var(--logo-gray);
+    position: relative;
+}
+
+.info-group dd {
+    color: var(--gray);
+    margin-right: 1.2rem;
+}
+
+.info-group dt:not(:first-of-type)::before {
+    content: '';
+    position: absolute;
+    left: -0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.1rem;
+    height: 1.2rem;
+    background-color: #666;
+    opacity: 0.4;
+}
+
+.info-group dd {
+    margin-right: 1.2rem;
+}
+
+.copyright {
+    text-align: right;
+}
+
+.copyright p + p {
+    margin-top: 0.6rem;
+}
+
+.copyright p {
+    color: var(--gray);
+}
+
+.copyright p strong {
+    color: var(--logo-gray);
+}
+
+/* //e: footer */
+
+/* btn-top */
+
+.btn-top {
+    position: fixed;
+    right: 8rem;
+    bottom: 8rem;
+    z-index: 100;
+    width: 6.8rem;
+    height: 6.8rem;
+    background-color: var(--logo-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+.btn-top i {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: var(--p-14-size);
+    font-weight: var(--p-14-sb-weight);
+    line-height: var(--p-14-line-height);
+    color: var(--fff);
+}
+
+.btn-top i::before {
+    content: '';
+    display: inline-block;
+    width: 1.2rem;
+    height: 0.8rem;
+    background: url(/coding/images/common/btn-top.svg);
+}
+
+/* //e: btn-top */

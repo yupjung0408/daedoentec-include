@@ -1,0 +1,440 @@
+@charset 'utf-8';
+
+:root {
+    font-size: 62.5%;
+
+    /* color */
+    --logo-main: #006fbc;
+    --logo-sub-01: #00a0e9;
+    --logo-sub-02: #8fd3f5;
+    --logo-gray: #9fa0a0;
+    --gray: #666666;
+    --bk: #212121;
+    --fff: #fff;
+    --ddd: #dddddd;
+    --bg-01: #f9f9f9;
+    --bg-02: #f4fbfe;
+    --main-80: #001626;
+
+    /* font */
+
+    /* Title */
+    --title-80-size: 8rem;
+    --title-80-line-height: 1;
+    --title-80-weight: 800;
+
+    --title-64-size: 6.4rem;
+    --title-64-line-height: 1.25;
+    --title-64-weight: 700;
+
+    /* Subtitle */
+    --sub-title-48-size: 4.8rem;
+    --sub-title-48-line-height: 1.25;
+    --sub-title-48-weight: 700;
+
+    --sub-title-32-size: 3.2rem;
+    --sub-title-32-line-height: 1.375;
+    --sub-title-32-weight: 700;
+
+    --sub-title-24-size: 2.4rem;
+    --sub-title-24-line-height: 1.333;
+    --sub-title-24-weight: 600;
+
+    /* Paragraph - 18 */
+    --p-18-size: 1.8rem;
+    --p-18-line-height: 1.444;
+    --p-18-weight: 500;
+    --p-18-sb-weight: 600;
+
+    /* Paragraph - 16 */
+    --p-16-size: 1.6rem;
+    --p-16-line-height: 1.5;
+    --p-16-weight: 400;
+    --p-16-sb-weight: 600;
+
+    /* Paragraph - 14 */
+    --p-14-size: 1.4rem;
+    --p-14-line-height: 1.429;
+    --p-14-weight: 400;
+    --p-14-sb-weight: 600;
+}
+
+main {
+    padding-top: 9rem;
+}
+
+/* s: product-visual */
+
+.product-visul-top {
+    margin-top: 9rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-title h2 {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-sb-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+}
+
+.product-title strong {
+    margin-top: 2.4rem;
+    display: block;
+    font-size: var(--sub-title-48-size);
+    font-weight: var(--sub-title-48-weight);
+    line-height: var(--sub-title-48-line-height);
+}
+
+.product-tabmenu {
+    display: flex;
+    margin-top: 13rem;
+    gap: 1.2rem; /* 밑줄이 떨어져 보이도록 */
+}
+
+.product-tabmenu li a {
+    position: relative;
+    padding: 2.4rem 2.4rem 1.2rem 2.4rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--logo-gray);
+    transition: color 0.2s;
+    text-align: center;
+}
+
+.product-tabmenu li a:hover {
+    color: var(--logo-sub-01);
+}
+
+.product-tabmenu li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 0.2rem;
+    background: var(--logo-sub-01);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.38, 1.15, 0.7, 1.02);
+    /* opacity로도 부드럽게 하고 싶으면, transition에 opacity도 추가 가능 */
+}
+
+/* Hover/Focus시 밑줄 중앙에서 좌우로 퍼짐 */
+.product-tabmenu li a:hover::after,
+.product-tabmenu li a:focus::after,
+.product-tabmenu li a.active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* active 탭 글자색 강조 예시(원하면 추가) */
+.product-tabmenu li a.active {
+    color: var(--logo-sub-01);
+}
+
+.product-visual-bg {
+    margin-top: 10rem;
+}
+
+.product-visual-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* //e: product-visual */
+
+.product-sec {
+    margin-top: 16rem;
+}
+
+.product-sec h4 {
+    font-size: var(--sub-title-32-size);
+    font-weight: var(--sub-title-32-weight);
+    line-height: var(--sub-title-32-line-height);
+    color: var(--bk);
+}
+
+.product-sec h4 span {
+    color: var(--logo-sub-01);
+}
+
+.product-sec-subtitle h4::before {
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: 0.2rem;
+    background: var(--logo-sub-02);
+    margin-bottom: 2.4rem;
+}
+
+/* s: rubber-dam */
+
+.rubber-dam-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rubber-dam-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rubber-dam-title strong {
+    font-size: var(--p-14-size);
+    font-weight: var(--p-14-sb-weight);
+    line-height: var(--p-14-line-height);
+    color: var(--logo-sub-02);
+}
+
+.rubber-dam-title h3 {
+    margin-top: 1.2rem;
+    font-size: var(--sub-title-48-size);
+    font-weight: var(--sub-title-48-weight);
+    line-height: var(--sub-title-48-line-height);
+    color: var(--bk);
+}
+
+.movable-weir-tab-menu {
+    margin-top: 4.8rem;
+    display: flex;
+    gap: 4.8rem;
+}
+
+.movable-weir-tab-menu li {
+    position: relative;
+}
+
+.movable-weir-tab-menu li + li::before {
+    content: '';
+    display: block;
+    width: 0.1rem;
+    height: 1.6rem;
+    background: var(--logo-gray);
+    position: absolute;
+    top: 50%;
+    left: -2.4rem;
+    transform: translateY(-50%);
+}
+
+.movable-weir-tab-menu li a {
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--logo-gray);
+}
+
+.movable-weir-tab-menu a.active {
+    color: var(--logo-sub-01);
+}
+
+.movable-weir-tab-menu li a {
+    transition: 0.4s;
+}
+
+.movable-weir-tab-menu li a:hover {
+    color: var(--logo-sub-01);
+}
+
+.rubber-dam-subtitle {
+    margin-top: 10rem;
+}
+
+.rubber-dam-subtitle h4::before {
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url(/coding/images/product/rubber-dam-ico1.svg) no-repeat 50%;
+    margin-bottom: 2.4rem;
+}
+
+.rubber-dam-subtitle p {
+    margin-top: 2.4rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--gray);
+}
+
+.rubber-dam figure {
+    margin-top: 10rem;
+    width: 100%;
+    height: 62rem;
+}
+
+.rubber-dam figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rubber-dam-table {
+    margin-top: 10rem;
+    width: 100%;
+    border-collapse: collapse; /* 셀의 보더 하나로 보이게 */
+    table-layout: fixed;
+    border-bottom: 1px solid var(--logo-sub-02);
+}
+
+.rubber-dam-table tr {
+    height: 7.4rem;
+    border-top: 1px solid var(--logo-sub-02);
+}
+
+.rubber-dam-table td {
+    padding: 2.4em;
+}
+
+.col-title {
+    width: 19rem;
+    background: var(--bg-02);
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--logo-main);
+}
+
+.col-text {
+    width: 125rem;
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--bk);
+}
+
+/* s: product-sec2 */
+
+.rubber-dam-features {
+    margin-top: 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4.8rem 2.4rem;
+}
+
+.rubber-dam-features li {
+    width: 46.4rem;
+    height: 35rem;
+}
+
+.rubber-dam-features li p {
+    margin-top: 2.4rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--bk);
+}
+
+.rubber-dam-features li span {
+    margin-top: 0.6rem;
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--gray);
+}
+
+/* s: product-sec3 */
+
+.product-sec-process {
+    background: var(--bg-02);
+    padding: 16rem 0;
+}
+
+.rubber-dam-installation-process {
+    margin-top: 10rem;
+    display: flex;
+    gap: 6rem;
+}
+
+.rubber-dam-installation-process li {
+    position: relative;
+}
+
+.rubber-dam-installation-process li + li::before {
+    content: '';
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: url(/coding/images/product/rubber-dam-sec3-ico.svg) no-repeat 50%;
+    position: absolute;
+    top: 50%;
+    left: -3.6rem;
+    transform: translateY(-50%);
+}
+
+.rubber-dam-installation-process li span {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-sb-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-main);
+    width: 31.5rem;
+    height: 5.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--logo-main);
+    background: var(--fff);
+}
+
+.rubber-dam-installation-process li img {
+    margin-top: 1.2rem;
+    width: 31.5rem;
+    height: 18.4rem;
+    object-fit: cover;
+}
+
+.rubber-dam-installation-process li p {
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--fff);
+    margin-top: 1.2rem;
+    width: 31.5rem;
+    height: 5.8rem;
+    background: var(--logo-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* s: product-sec4 */
+
+.highest-rubber-dam {
+    display: flex;
+    gap: 12.2rem;
+}
+
+.highest-rubber-dam figure {
+    width: 85.4rem;
+    height: 62rem;
+}
+
+.highest-rubber-dam figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* s: product-sec5 */
+
+.product-sec-diagram {
+    background: var(--bg-01);
+    padding: 16rem 0 20rem 0;
+}
+
+.product-sec-diagram figure {
+    margin-top: 10rem;
+    width: 100%;
+    height: 62rem;
+}
+
+.rubber-dam-diagram figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

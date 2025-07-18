@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>공지사항 / DAEDO ENTEC</title>
+        <base href="/" />
+        <!-- 주소가 나오면 /앞에 붙이기 -->
+
+        <link rel="stylesheet" href="/coding/css/reset.css" />
+        <link rel="stylesheet" href="/coding/css/fonts.css" />
+        <link rel="stylesheet" href="/coding/css/common.css" />
+        <link rel="stylesheet" href="/coding/css/cs.css" />
+
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js" defer></script>
+
+        <script src="/coding/js/include.js" defer></script>
+        <script src="/coding/js/script.js" defer></script>
+        <script src="/coding/js/notice-data.js" defer></script>
+        <script src="/coding/js/notice.js" defer></script>
+    </head>
+    <body>
+        <hr />
+        <!-- s: header -->
+        <!-- Header Include -->
+        <div id="include-header"></div>
+        <!-- //e: header -->
+
+        <hr />
+
+        <!-- s: main -->
+        <main id="main">
+            <section class="cs-visual">
+                <div class="container">
+                    <div class="cs-visul-top">
+                        <div class="cs-title">
+                            <h2>고객센터</h2>
+                            <strong>
+                                Hello, Daedoentec <br />
+                                대도엔텍에서 알려드립니다.
+                            </strong>
+                        </div>
+                        <ul class="cs-tabmenu">
+                            <li><a class="active" href="/coding/cs/notice.html">공지사항</a></li>
+                            <li><a href="/coding/cs/inquiry.html">고객문의</a></li>
+                            <li><a href="/coding/cs/resources.html">자료실</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cs-visual-bg">
+                    <img src="/coding/images/cs/cs-visual-bg1.png" alt="bg" />
+                </div>
+            </section>
+
+            <!-- //e: cs-visual  -->
+
+            <section class="notice">
+                <div class="container">
+                    <div class="notice-top">
+                        <div class="notice-title">
+                            <h3>
+                                <span>공지사항</span> <br />
+                                최신 소식을 전해드립니다.
+                            </h3>
+                        </div>
+
+                        <div class="notice-search">
+                            <div class="search-left">
+                                <button class="search-toggle">제목+내용</button>
+                            </div>
+
+                            <div class="search-right">
+                                <div class="search-input-wrap">
+                                    <input type="text" placeholder="검색어를 입력해주세요." />
+                                    <span class="search-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notice-bottom">
+                        <div class="notic-list-total">
+                            <p>Total <span>4</span></p>
+                        </div>
+
+                        <ul class="notice-list" id="noticeList"></ul>
+                    </div>
+                    <div class="notice-list-pagination">
+                        <button class="pagination-prev" id="btnPrev"><span></span></button>
+                        <div class="btn-number" id="btnNumber">
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                        </div>
+                        <button class="pagination-next" id="btnNext"><span></span></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- //e: main -->
+
+        <hr />
+        <!-- s: footer -->
+
+        <!-- Footer Include -->
+        <div id="include-footer"></div>
+        <!-- //e: footer -->
+
+        <!-- //e: footer -->
+
+        <div class="btn-top">
+            <button type="button"><i>TOP</i></button>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,651 @@
+@charset 'utf-8';
+
+main {
+    padding: 9rem 0 20rem;
+}
+
+/* s: company-visual */
+
+.conpany-visul-top {
+    margin-top: 9rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.company-title h2 {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-sb-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+}
+
+.company-title strong {
+    margin-top: 2.4rem;
+    display: block;
+    font-size: var(--sub-title-48-size);
+    font-weight: var(--sub-title-48-weight);
+    line-height: var(--sub-title-48-line-height);
+}
+
+.company-tabmenu {
+    display: flex;
+    margin-top: 13rem;
+    gap: 1.2rem; /* 밑줄이 떨어져 보이도록 */
+}
+
+.company-tabmenu li a {
+    position: relative;
+    padding: 2.4rem 2.4rem 1.2rem 2.4rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--logo-gray);
+    transition: color 0.2s;
+    text-align: center;
+}
+
+.company-tabmenu li a:hover {
+    color: var(--logo-sub-01);
+}
+
+.company-tabmenu li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 0.2rem;
+    background: var(--logo-sub-01);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.38, 1.15, 0.7, 1.02);
+    /* opacity로도 부드럽게 하고 싶으면, transition에 opacity도 추가 가능 */
+}
+
+/* Hover/Focus시 밑줄 중앙에서 좌우로 퍼짐 */
+.company-tabmenu li a:hover::after,
+.company-tabmenu li a:focus::after,
+.company-tabmenu li a.active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* active 탭 글자색 강조 예시(원하면 추가) */
+.company-tabmenu li a.active {
+    color: var(--logo-sub-01);
+}
+
+.company-visual-bg {
+    margin-top: 10rem;
+}
+
+.company-visual-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* //e: company-visual */
+
+/* s: company-history */
+
+.company-history {
+    padding: 16rem 0;
+    background: var(--bg-02);
+}
+
+.history-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.history-title::before {
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url(/coding/images/company/company-ico-spanner.svg) no-repeat 50%;
+    margin-bottom: 2.4rem;
+}
+
+.history-title h3 {
+    text-align: center;
+    font-size: var(--sub-title-32-size);
+    font-weight: var(--sub-title-32-weight);
+    line-height: var(--sub-title-32-line-height);
+    color: var(--bk);
+}
+
+.history-title h3 span {
+    color: var(--logo-sub-01);
+}
+
+.history-list {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+}
+
+.history-list li {
+    width: 34.2rem;
+}
+
+.history-list li dl {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-list li dl::before {
+    content: '';
+    display: block;
+    width: 8rem;
+    height: 8rem;
+}
+
+.history-list li:nth-child(1) dl::before {
+    width: 12.858rem;
+    background: url(/coding/images/company/history-ico1.png) no-repeat 50%;
+}
+.history-list li:nth-child(2) dl::before {
+    background: url(/coding/images/company/history-ico2.png) no-repeat 50%;
+}
+.history-list li:nth-child(3) dl::before {
+    background: url(/coding/images/company/history-ico3.png) no-repeat 50%;
+}
+
+.history-list li dl dt {
+    margin-top: 2.4rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--bk);
+}
+
+.history-list li dl dd {
+    margin-top: 1.2rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--gray);
+}
+
+/* //e: company-history */
+
+/* s: company-greeting */
+
+.company-greeting {
+    margin-top: 16rem;
+}
+
+.company-greeting-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+}
+
+.company-greeting-title h4::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2.4rem;
+    background: url(/coding/images/company/company-ico-tree.svg) no-repeat 50%;
+    margin-bottom: 2.4rem;
+}
+
+.company-greeting-title h4 {
+    font-size: var(--sub-title-32-size);
+    font-weight: var(--sub-title-32-weight);
+    line-height: var(--sub-title-32-line-height);
+    color: var(--bk);
+}
+
+.company-greeting-title h4 span {
+    color: var(--logo-sub-01);
+}
+
+.company-greeting-text strong {
+    font-size: var(--sub-title-24-size);
+    font-weight: var(--sub-title-24-weight);
+    line-height: var(--sub-title-24-line-height);
+    color: var(--bk);
+}
+
+.company-greeting-text p {
+    margin-top: 1.2rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--gray);
+}
+
+.company-greeting-title em {
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--bk);
+}
+
+.company-icon-list {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+}
+
+.company-icon-list li {
+    width: 34.2rem;
+    padding: 4.8rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-02);
+}
+
+.company-icon-list li p::before {
+    content: '';
+    display: block;
+    width: 7rem;
+    height: 7rem;
+    margin-bottom: 2.4rem;
+}
+
+.company-icon-list li:nth-child(1) p::before {
+    background: url(/coding/images/company/company-greeting-ico1.png) no-repeat 50%;
+}
+.company-icon-list li:nth-child(2) p::before {
+    background: url(/coding/images/company/company-greeting-ico2.png) no-repeat 50%;
+}
+.company-icon-list li:nth-child(3) p::before {
+    background: url(/coding/images/company/company-greeting-ico3.png) no-repeat 50%;
+}
+.company-icon-list li:nth-child(4) p::before {
+    background: url(/coding/images/company/company-greeting-ico4.png) no-repeat 50%;
+}
+
+.company-icon-list li p {
+    text-align: center;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--bk);
+}
+
+/* //e: company-greeting */
+
+/* //e: greeting */
+
+/* s: ci */
+
+.ci-info {
+    margin-top: 16rem;
+}
+
+.ci-title {
+}
+
+.ci-title h3::before {
+    content: '';
+    display: block;
+    width: 4.3rem;
+    height: 2.4rem;
+    background: url(/coding/images/company/logo-mini.svg) no-repeat 50%;
+    margin-bottom: 2.4rem;
+}
+
+.ci-title h3 {
+    font-size: var(--sub-title-32-size);
+    font-weight: var(--sub-title-32-weight);
+    line-height: var(--sub-title-32-line-height);
+    color: var(--bk);
+}
+
+.ci-title h3 span {
+    color: var(--logo-sub-01);
+}
+
+.ci-text {
+    margin-top: 4.8rem;
+}
+
+.ci-text strong {
+    font-size: var(--sub-title-24-size);
+    font-weight: var(--sub-title-24-weight);
+    line-height: var(--sub-title-24-line-height);
+    color: var(--bk);
+}
+
+.ci-text p {
+    margin-top: 1.2rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--gray);
+}
+
+/* ci-logo */
+
+.ci-logo {
+    margin-top: 10rem;
+}
+
+.ci-logo h4::before {
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: 0.2rem;
+    background: var(--logo-sub-02);
+    margin-bottom: 2.4rem;
+}
+
+.ci-logo h4 {
+    font-size: var(--sub-title-24-size);
+    font-weight: var(--sub-title-24-weight);
+    line-height: var(--sub-title-24-line-height);
+    color: var(--bk);
+}
+
+.logo-box {
+    margin-top: 4.8rem;
+    display: flex;
+    gap: 2.4rem;
+}
+
+.logo-height {
+    padding: 10rem 0;
+    width: 70.8rem;
+    height: 30rem;
+    border: 1px solid var(--ddd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.logo-width {
+    padding: 10rem 0;
+    width: 70.8rem;
+    height: 30rem;
+    border: 1px solid var(--ddd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.logo-height img {
+    width: 16.072rem;
+    height: 10rem;
+}
+
+.logo-width img {
+    width: 28.997rem;
+    height: 4rem;
+}
+
+.logo-box p {
+    position: absolute;
+    top: 2.4rem;
+    left: 2.4rem;
+
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+}
+
+/* color-system */
+
+.ci-color-system {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ci-color-system h4::before {
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: 0.2rem;
+    background: var(--logo-sub-02);
+    margin-bottom: 2.4rem;
+}
+
+.ci-color-system h4 {
+    font-size: var(--sub-title-24-size);
+    font-weight: var(--sub-title-24-weight);
+    line-height: var(--sub-title-24-line-height);
+    color: var(--bk);
+}
+
+.color-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    width: 95.2rem;
+}
+
+.color-list li {
+    width: 47rem;
+    padding: 4.8rem 1.2rem 1.2rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.color-list li:nth-child(1) {
+    background: var(--logo-main);
+}
+.color-list li:nth-child(2) {
+    background: var(--logo-sub-01);
+}
+.color-list li:nth-child(3) {
+    background: var(--logo-sub-02);
+}
+.color-list li:nth-child(4) {
+    background: var(--logo-gray);
+}
+
+.color-list li span {
+    font-size: var(--p-14-size);
+    font-weight: var(--p-14-sb-weight);
+    line-height: var(--p-14-line-height);
+    color: var(--fff);
+}
+
+.color-list li span + span {
+    font-weight: var(--p-14-weight);
+}
+
+/* s: location */
+
+.location {
+    margin-top: 16rem;
+}
+
+.location-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 24rem;
+}
+
+.location-info {
+    width: 34.2rem;
+    height: 62rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.location-title h3::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2.4rem;
+    background: url(/coding/images/company/company-ico-gps.svg) no-repeat 50%;
+    margin-bottom: 2.4rem;
+}
+
+.location-title h3 {
+    font-size: var(--sub-title-32-size);
+    font-weight: var(--sub-title-32-weight);
+    line-height: var(--sub-title-32-line-height);
+    color: var(--bk);
+}
+
+.location-title h3 span {
+    color: var(--logo-sub-01);
+}
+
+.location-tab-menu {
+    margin-top: 4.8rem;
+    display: flex;
+    gap: 4.8rem;
+    width: 29.8rem;
+}
+
+.location-tab-menu li {
+    position: relative;
+}
+
+.location-tab-menu li + li::before {
+    content: '';
+    display: block;
+    width: 0.1rem;
+    height: 1.6rem;
+    background: var(--logo-gray);
+    position: absolute;
+    top: 50%;
+    left: -2.4rem;
+    transform: translateY(-50%);
+}
+
+.location-tab-menu li button {
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--logo-gray);
+}
+
+.location-tab-menu li.active button {
+    color: var(--logo-sub-01);
+}
+
+.location-tab-menu li button {
+    transition: 0.4s;
+}
+
+.location-tab-menu li button:hover {
+    color: var(--logo-sub-01);
+}
+
+.map-info {
+    width: 100%;
+    display: none;
+}
+
+.map-info.active {
+    display: block;
+}
+
+.map-info h4::before {
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: 0.2rem;
+    background: var(--logo-sub-02);
+    margin-bottom: 2.4rem;
+}
+
+.map-info h4 {
+    font-size: var(--sub-title-24-size);
+    font-weight: var(--sub-title-24-weight);
+    line-height: var(--sub-title-24-line-height);
+    color: var(--bk);
+}
+
+.info-box {
+    margin-top: 4.8rem;
+}
+
+.info-box p {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--bk);
+}
+
+.info-box p span {
+    font-weight: var(--p-16-sb-weight);
+}
+
+.info-box-contact p span {
+    margin-right: 0.6rem;
+    display: inline-block;
+    width: 2.7rem;
+}
+
+.info-box-email {
+    margin-top: 1.2rem;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.info-box-contact-text {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-row > span::after {
+    content: '';
+    display: block;
+    width: 1.8rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.info-row.info-box-address > span::after {
+    height: 2rem;
+    background-image: url(/coding/images/company/company-ico-map.svg);
+}
+.info-row.info-box-contact > span::after {
+    height: 1.8rem;
+    background-image: url(/coding/images/company/company-ico-tel.svg);
+}
+.info-row.info-box-email > span::after {
+    height: 1.5rem;
+    background-image: url(/coding/images/company/company-ico-mail.svg);
+}
+
+.map-box {
+    width: 121.6rem;
+    height: 62rem;
+    display: none;
+}
+
+.map-box.active {
+    display: block;
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(1);
+    transition: 0.4s;
+}
+
+.map-box iframe:hover {
+    filter: grayscale(0);
+}

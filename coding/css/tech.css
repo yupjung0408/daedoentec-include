@@ -1,0 +1,226 @@
+@charset 'utf-8';
+
+main {
+    padding: 9rem 0 20rem;
+}
+
+/* s: tech-visual */
+
+.tech-visul-top {
+    margin-top: 9rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tech-title h2 {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-sb-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+}
+
+.tech-title strong {
+    margin-top: 2.4rem;
+    display: block;
+    font-size: var(--sub-title-48-size);
+    font-weight: var(--sub-title-48-weight);
+    line-height: var(--sub-title-48-line-height);
+}
+
+.tech-tabmenu {
+    display: flex;
+    margin-top: 13rem;
+    gap: 1.2rem; /* 밑줄이 떨어져 보이도록 */
+}
+
+.tech-tabmenu li a {
+    position: relative;
+    padding: 2.4rem 2.4rem 1.2rem 2.4rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--logo-gray);
+    transition: color 0.2s;
+    text-align: center;
+}
+
+.tech-tabmenu li a:hover {
+    color: var(--logo-sub-01);
+}
+
+.tech-tabmenu li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 0.2rem;
+    background: var(--logo-sub-01);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.38, 1.15, 0.7, 1.02);
+    /* opacity로도 부드럽게 하고 싶으면, transition에 opacity도 추가 가능 */
+}
+
+/* Hover/Focus시 밑줄 중앙에서 좌우로 퍼짐 */
+.tech-tabmenu li a:hover::after,
+.tech-tabmenu li a:focus::after,
+.tech-tabmenu li a.active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* active 탭 글자색 강조 예시(원하면 추가) */
+.tech-tabmenu li a.active {
+    color: var(--logo-sub-01);
+}
+
+.tech-visual-bg {
+    margin-top: 10rem;
+}
+
+.tech-visual-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* //e: tech-visual */
+
+.tech-certifications {
+    margin-top: 16rem;
+}
+
+.tech-title h3::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2.4rem;
+    background: url(/coding/images/tech/tech-ico1.svg) no-repeat 50%;
+    margin-bottom: 2.4rem;
+}
+
+.tech-title h3 {
+    font-size: var(--sub-title-32-size);
+    font-weight: var(--sub-title-32-weight);
+    line-height: var(--sub-title-32-line-height);
+    color: var(--bk);
+}
+
+.location-title h3 span {
+    color: var(--logo-sub-01);
+}
+
+.tech-tab-menu {
+    margin-top: 4.8rem;
+    display: flex;
+    gap: 4.8rem;
+}
+
+.tech-tab-menu li {
+    position: relative;
+}
+
+.tech-tab-menu li + li::before {
+    content: '';
+    display: block;
+    width: 0.1rem;
+    height: 1.6rem;
+    background: var(--logo-gray);
+    position: absolute;
+    top: 50%;
+    left: -2.4rem;
+    transform: translateY(-50%);
+}
+
+.tech-tab-menu li button {
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--logo-gray);
+}
+
+.tech-tab-menu li.active button {
+    color: var(--logo-sub-01);
+}
+
+.tech-tab-menu li button {
+    transition: 0.4s;
+}
+
+.tech-tab-menu li button:hover {
+    color: var(--logo-sub-01);
+}
+
+.tech-certifications-info {
+    margin-top: 10rem;
+}
+
+.tech-certifications-info h4::before {
+    content: '';
+    display: block;
+    width: 2.4rem;
+    height: 0.2rem;
+    background: var(--logo-sub-02);
+    margin-bottom: 2.4rem;
+}
+
+.tech-certifications-info h4 {
+    font-size: var(--sub-title-24-size);
+    font-weight: var(--sub-title-24-weight);
+    line-height: var(--sub-title-24-line-height);
+    color: var(--bk);
+}
+
+.tech-certifications-info {
+    display: none;
+}
+
+.tech-certifications-info.active {
+    display: block;
+}
+
+.tech-list {
+    margin-top: 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rem 4.8rem;
+}
+
+.tech-list li {
+    width: 32.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+}
+
+.tech-list li img {
+    width: 20.4rem;
+    height: 29.8rem;
+}
+
+.tech-certifications-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.tech-certifications-label strong {
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--bk);
+}
+
+.tech-certifications-label p {
+    margin-top: 1.2rem;
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--gray);
+}
+.tech-certifications-label p + p {
+    margin-top: 0.6rem;
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>오시는길 / DAEDO ENTEC</title>
+        <base href="/" />
+        <!-- 주소가 나오면 /앞에 붙이기 -->
+
+        <link rel="stylesheet" href="/coding/css/reset.css" />
+        <link rel="stylesheet" href="/coding/css/fonts.css" />
+        <link rel="stylesheet" href="/coding/css/common.css" />
+        <link rel="stylesheet" href="/coding/css/company.css" />
+
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js" defer></script>
+
+        <script src="/coding/js/include.js" defer></script>
+        <script src="/coding/js/script.js" defer></script>
+        <script src="/coding/js/sub.js" defer></script>
+    </head>
+    <body>
+        <hr />
+        <!-- s: header -->
+        <!-- Header Include -->
+        <div id="include-header"></div>
+        <!-- //e: header -->
+
+        <hr />
+
+        <!-- s: main -->
+        <main id="main">
+            <section class="company-visual">
+                <div class="container">
+                    <div class="conpany-visul-top">
+                        <div class="company-title">
+                            <h2>회사소개</h2>
+                            <strong>
+                                Since 2003 <br />
+                                기술 제일을 추구합니다.
+                            </strong>
+                        </div>
+                        <ul class="company-tabmenu">
+                            <li><a href="/coding/company/greeting.html">인사말</a></li>
+                            <li><a href="/coding/company/ci.html">CI</a></li>
+                            <li><a class="active" href="/coding/company/location.html">오시는길</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="company-visual-bg">
+                    <img src="/coding/images/company/company-visual-bg3.png" alt="bg" />
+                </div>
+            </section>
+
+            <!-- //e: company-visual  -->
+
+            <section class="location">
+                <div class="location-wrap">
+                    <div class="location-info">
+                        <div class="location-title">
+                            <h3>
+                                <span>㈜대도엔텍</span> <br />
+                                찾아오시는 길
+                            </h3>
+                            <ul class="location-tab-menu">
+                                <li class="active">
+                                    <button data-tab="company">본사 및 공장</button>
+                                </li>
+                                <li><button data-tab="laboratory">설계사무소/기술연구소</button></li>
+                            </ul>
+                        </div>
+
+                        <div class="map-info active" id="company-map-info">
+                            <h4>본사 및 공장</h4>
+                            <div class="info-box">
+                                <div class="info-row info-box-address">
+                                    <span></span>
+                                    <p>경상북도 구미시 비산로 138, 4동</p>
+                                </div>
+                                <div class="info-row info-box-contact">
+                                    <span></span>
+                                    <div class="info-box-contact-text">
+                                        <p><span>Tel</span>054-461-9524</p>
+                                        <p><span>Fax</span>054-461-9525</p>
+                                    </div>
+                                </div>
+                                <div class="info-row info-box-email">
+                                    <span></span>
+                                    <p>erubberdam@naver.com</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="map-info" id="laboratory-map-info">
+                            <h4>설계사무소/기술연구소</h4>
+                            <div class="info-box">
+                                <div class="info-row info-box-address">
+                                    <span></span>
+                                    <p>경기도 고양시 일산동구 호수로 358-39, 412호</p>
+                                </div>
+                                <div class="info-row info-box-contact">
+                                    <span></span>
+                                    <div class="info-box-contact-text">
+                                        <p><span>Tel</span>031-919-9524</p>
+                                        <p><span>Fax</span>031-919-9526</p>
+                                    </div>
+                                </div>
+                                <div class="info-row info-box-email">
+                                    <span></span>
+                                    <p>erubberdam@naver.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="location-map">
+                        <div class="map-box active" id="company-map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3222.954807730869!2d128.38220468906187!3d36.118958734778175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565c6ba66713933%3A0x21c394aa1bba2a6e!2z6rK97IOB67aB64-EIOq1rOuvuOyLnCDruYTsgrDroZwgMTM4!5e0!3m2!1sko!2skr!4v1751942367227!5m2!1sko!2skr"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                        <div class="map-box" id="laboratory-map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2656.7174322762085!2d126.78465341038174!3d37.640098318991065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9acc062cd86f%3A0x3b3ac3211e5ed57c!2z6rK96riw64-EIOqzoOyWkeyLnCDsnbzsgrDrj5nqtawg7Zi47IiY66GcIDM1OC0zOQ!5e0!3m2!1sko!2skr!4v1751942652732!5m2!1sko!2skr"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- //e: main -->
+
+        <hr />
+        <!-- s: footer -->
+
+        <!-- Footer Include -->
+        <div id="include-footer"></div>
+        <!-- //e: footer -->
+
+        <!-- //e: footer -->
+
+        <div class="btn-top">
+            <button type="button"><i>TOP</i></button>
+        </div>
+    </body>
+</html>

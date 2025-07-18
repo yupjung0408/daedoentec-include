@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자료실 / DAEDO ENTEC</title>
+        <base href="/" />
+        <!-- 주소가 나오면 /앞에 붙이기 -->
+
+        <link rel="stylesheet" href="/coding/css/reset.css" />
+        <link rel="stylesheet" href="/coding/css/fonts.css" />
+        <link rel="stylesheet" href="/coding/css/common.css" />
+        <link rel="stylesheet" href="/coding/css/cs.css" />
+
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js" defer></script>
+
+        <script src="/coding/js/include.js" defer></script>
+        <script src="/coding/js/script.js" defer></script>
+        <script src="/coding/js/resources-data.js" defer></script>
+        <script src="/coding/js/resources.js" defer></script>
+    </head>
+    <body>
+        <hr />
+        <!-- s: header -->
+        <!-- Header Include -->
+        <div id="include-header"></div>
+        <!-- //e: header -->
+
+        <hr />
+
+        <!-- s: main -->
+        <main id="main">
+            <section class="cs-visual">
+                <div class="container">
+                    <div class="cs-visul-top">
+                        <div class="cs-title">
+                            <h2>고객센터</h2>
+                            <strong>
+                                Hello, Daedoentec <br />
+                                대도엔텍에서 알려드립니다.
+                            </strong>
+                        </div>
+                        <ul class="cs-tabmenu">
+                            <li><a href="/coding/cs/notice.html">공지사항</a></li>
+                            <li><a href="/coding/cs/inquiry.html">고객문의</a></li>
+                            <li><a class="active" href="/coding/cs/resources.html">자료실</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cs-visual-bg">
+                    <img src="/coding/images/cs/cs-visual-bg3.png" alt="bg" />
+                </div>
+            </section>
+
+            <!-- //e: cs-visual  -->
+
+            <section class="resources">
+                <div class="container">
+                    <div class="resources-top">
+                        <div class="resources-title">
+                            <h3>
+                                <span>자료실</span> <br />
+                                다양한 제품 정보를 확인하세요.
+                            </h3>
+                        </div>
+
+                        <div class="resources-search">
+                            <div class="search-left">
+                                <button class="search-toggle">제목+내용</button>
+                            </div>
+
+                            <div class="search-right">
+                                <div class="search-input-wrap">
+                                    <input type="text" placeholder="검색어를 입력해주세요." />
+                                    <span class="search-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resources-bottom">
+                        <div class="resources-list-total">
+                            <p>Total <span>4</span></p>
+                        </div>
+
+                        <table class="resources-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-no">번호</th>
+                                    <th class="col-title">제목</th>
+                                    <th class="col-date">작성일</th>
+                                    <th class="col-views">조회수</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resourcesTbody">
+                                <tr>
+                                    <td class="col-no">4</td>
+                                    <td class="col-title"><a href="#">자료실 제목입니다.</a></td>
+                                    <td class="col-date">2025-05-19</td>
+                                    <td class="col-views">574</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-no">3</td>
+                                    <td class="col-title"><a href="#">자료실 제목입니다.</a></td>
+                                    <td class="col-date">2025-05-19</td>
+                                    <td class="col-views">574</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-no">2</td>
+                                    <td class="col-title"><a href="#">자료실 제목입니다.</a></td>
+                                    <td class="col-date">2025-05-19</td>
+                                    <td class="col-views">574</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="col-no">1</td>
+                                    <td class="col-title">
+                                        <a href="/coding/cs/resources-view.html"
+                                            >(주)대도엔텍 투명홍수방어벽 홍보영상</a
+                                        >
+                                    </td>
+                                    <td class="col-date">2025-05-19</td>
+                                    <td class="col-views">574</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="resources-list-pagination">
+                        <button class="pagination-prev" id="btnPrev"><span></span></button>
+                        <div class="btn-number" id="btnNumber">
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                        </div>
+                        <button class="pagination-next" id="btnNext"><span></span></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- //e: main -->
+
+        <hr />
+        <!-- s: footer -->
+
+        <!-- Footer Include -->
+        <div id="include-footer"></div>
+        <!-- //e: footer -->
+
+        <!-- //e: footer -->
+
+        <div class="btn-top">
+            <button type="button"><i>TOP</i></button>
+        </div>
+    </body>
+</html>

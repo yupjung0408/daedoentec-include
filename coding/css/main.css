@@ -1,0 +1,663 @@
+@charset 'utf-8';
+
+/* s: main */
+
+/* s: banner */
+
+/* 텍스트 + 페이지네이션 컨테이너 */
+.banner-text-wrap {
+    position: absolute;
+    top: 28rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 144rem;
+    color: var(--fff);
+    z-index: 10;
+    padding: 0 2rem;
+}
+
+/* 메인 텍스트 스타일 */
+.banner-text {
+    font-size: var(--title-64-size);
+    font-weight: var(--title-64-weight);
+    line-height: var(--title-64-line-height);
+}
+
+.banner-text span {
+    display: block; /* 줄바꿈 효과 */
+}
+
+/* 배너 슬라이드 배경 */
+.banner {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.visual-slider {
+    width: 100%;
+    height: 100%;
+}
+
+.visual-slide {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 100%; /* 하단부분 보이도록 */
+    display: block;
+}
+
+/* 페이지네이션을 이너 안에 위치시키기 */
+.visual-slider-pagination {
+    position: absolute;
+    top: 50%;
+    right: 0; /* container 안에서 우측 정렬 */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* 기본 원 */
+.swiper-pagination-bullet {
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    position: relative;
+    transition: opacity 0.3s;
+}
+
+/* 활성화된 원 - 바깥 stroke */
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* //e: banner */
+
+/* s: info */
+
+.info {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    min-height: 116.8rem;
+}
+
+.info-pin-area {
+    min-height: 100vh; /* 또는 pin 구간만큼, 예: 120vh, 150vh 등 */
+    position: relative;
+}
+
+.info-bg {
+    position: relative;
+}
+
+.info .container {
+    padding-top: 24rem;
+    position: relative;
+}
+
+.info-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+
+    position: absolute;
+    top: 24rem;
+    left: 0;
+    z-index: 3;
+}
+
+.info-title h3 {
+    font-size: var(--title-80-size);
+    font-weight: var(--title-80-weight);
+    color: var(--bk);
+}
+
+.info-title p {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--gray);
+}
+
+.info-title a {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.info-title a::after {
+    content: '';
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid var(--logo-gray);
+    border-radius: 50%;
+    background: url(/coding/images/common/moreview.svg) no-repeat 50%;
+}
+
+/* 상단 배경 로고 */
+
+.info-logo {
+    position: absolute;
+    top: 4.8rem;
+    left: 4.8rem;
+    width: 52rem;
+    height: 55.2rem;
+    background: url('/coding/images/main/bg-logo.png') no-repeat left top;
+    background-size: contain;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 하단 배경 이미지 */
+
+.info-img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    /* top: 64.8rem; */
+    /* height: 40rem; */
+    top: 64.8vh;
+    height: 40vh;
+    background: url('/coding/images/main/info-bg-big.png') no-repeat center center;
+    background-size: cover;
+    z-index: 0;
+    will-change: top, height;
+    transition: none;
+}
+
+.info-dim {
+    position: absolute; /* fixed X, absolute로! */
+    left: 0;
+    width: 100%;
+    /* top: 64.8rem; */
+    /* height: 40rem; */
+    top: 64.8vh;
+    height: 40vh;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    transition: none;
+    opacity: 1;
+}
+
+.info-title,
+.info-title h3,
+.info-title p,
+.info-title a {
+    transition: color 0.5s;
+}
+.info-title.active,
+.info-title.active h3,
+.info-title.active p,
+.info-title.active a {
+    color: #fff; /* 필요시 !important 사용 */
+}
+
+/* //e: info */
+
+/* s: product */
+
+.product-wrap {
+    width: 100%;
+    display: flex;
+    gap: 12.2rem;
+    padding: 12rem 24rem 12rem 0;
+}
+
+.product-slider-wrap {
+    /* width: 50%; */
+    width: 107rem;
+}
+
+.product-slider-wrap .swiper-slide {
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 커스텀 페이지네이션 위치 및 레이아웃 */
+.product-slider-pagination {
+    position: absolute;
+    left: 24rem;
+    right: 24rem;
+    bottom: 4.8rem;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: auto;
+    /* 만약 absolute 적용이 이상하면 relative로 바꿔도 됨 */
+}
+
+/* 각 페이지네이션 아이템 */
+.product-pagination-item {
+    position: relative;
+    width: 14.75rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background 0.2s;
+}
+.product-pagination-item.active .product-pagination-label {
+    color: var(--fff);
+}
+.product-pagination-label {
+    z-index: 1;
+    color: var(--logo-gray);
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    text-align: center;
+}
+
+.product-pagination-stroke-bg,
+.product-pagination-stroke-fg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    pointer-events: none;
+}
+.product-pagination-stroke-bg {
+    background: var(--logo-gray);
+    z-index: 1;
+}
+.product-pagination-stroke-fg {
+    background: var(--fff);
+    z-index: 2;
+    width: 0%;
+    transition: width 0s;
+}
+.product-pagination-item.active .product-pagination-stroke-fg {
+    transition: width linear;
+}
+
+.product-texts {
+    width: 48.8rem;
+    padding: 8rem 0;
+}
+
+.product-texts h3 {
+    font-size: var(--title-80-size);
+    font-weight: var(--title-80-weight);
+    line-height: var(--title-80-line-height);
+    color: var(--bk);
+}
+
+.product-texts p {
+    margin-top: 4.8rem;
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--gray);
+}
+
+.product-list {
+    margin-top: 13rem;
+    position: relative;
+    min-height: 15.4rem;
+}
+
+.product-list li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(3rem);
+
+    /* 슬라이드 전환과 맞춘 트랜지션 시간 */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.product-list li.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.product-list dt {
+    font-size: var(--sub-title-32-size);
+    font-weight: var(--sub-title-32-weight);
+    line-height: var(--sub-title-32-line-height);
+    color: var(--bk);
+}
+
+.product-list dd {
+    margin-top: 1.2rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--gray);
+}
+
+.product-list a {
+    margin-top: 4.8rem;
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.product-list a::after {
+    content: '';
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid var(--logo-gray);
+    border-radius: 50%;
+    background: url(/coding/images/common/moreview.svg) no-repeat 50%;
+}
+
+/* //e: product */
+
+/* s: hello-Daedoentec */
+
+.hello-daedoentec {
+    /* background: linear-gradient(to bottom, #f9f9f9 0%, rgba(249, 249, 249, 0) 100%); */
+    background: linear-gradient(to bottom, rgba(249, 249, 249, 0) 0%, rgba(249, 249, 249, 1) 100%);
+}
+
+.hello-daedoentec .container {
+    display: flex;
+    padding: 12rem 0;
+}
+
+.hello-daedoentec-bg {
+    background: url(/coding/images/main/bg-logo.png) no-repeat 4.8rem 0;
+}
+
+.hello-daedoentec-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    margin-left: 12.2rem;
+}
+
+.hello-daedoentec-title h3 {
+    font-size: var(--title-80-size);
+    font-weight: var(--title-80-weight);
+    color: var(--bk);
+}
+
+.hello-daedoentec-title p {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    color: var(--gray);
+}
+
+.link-box {
+    margin-left: 14.6rem;
+    width: 46.4rem;
+}
+
+.more-view-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rem 0;
+}
+
+.more-view-link li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+    width: 23.2rem;
+}
+
+.link-box-ico {
+    width: 8rem;
+    height: 8rem;
+}
+
+.more-view-link li:nth-child(1) .link-box-ico {
+    width: 9.2rem;
+    background: url(/coding/images/main/section4-ico1.png) no-repeat 50%;
+}
+.more-view-link li:nth-child(2) .link-box-ico {
+    width: 6.6rem;
+    background: url(/coding/images/main/section4-ico2.png) no-repeat 50%;
+}
+.more-view-link li:nth-child(3) .link-box-ico {
+    background: url(/coding/images/main/section4-ico3.png) no-repeat 50%;
+}
+.more-view-link li:nth-child(4) .link-box-ico {
+    background: url(/coding/images/main/section4-ico4.png) no-repeat 50%;
+}
+
+.more-view-link li strong {
+    margin-top: 2.4rem;
+    font-size: var(--p-18-size);
+    font-weight: var(--p-18-sb-weight);
+    line-height: var(--p-18-line-height);
+    color: var(--bk);
+}
+
+.more-view-link li a {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.more-view-link li a::after {
+    content: '';
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid var(--logo-gray);
+    border-radius: 50%;
+    background: url(/coding/images/common/moreview.svg) no-repeat 50%;
+}
+
+/* //e: hello-Daedoentec */
+
+/* s: customer-center */
+
+.customer-center {
+    position: relative;
+
+    background-color: var(--bg-01);
+    overflow: hidden;
+}
+
+.customer-center .bg-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48.4rem;
+    height: 55.6rem;
+    background: url('/coding/images/main/bg-logo-reverse.png') no-repeat center center / contain;
+    z-index: 0;
+}
+
+.customer-center .container {
+    position: relative;
+    padding: 12rem 0 20rem;
+    z-index: 1;
+}
+
+.customer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+}
+
+.customer-bottom {
+    margin-top: 4.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customer-top h3 {
+    font-size: var(--title-80-size);
+    font-weight: var(--title-80-weight);
+    line-height: var(--title-80-line-height);
+    color: var(--bk);
+}
+
+.customer-bottom p {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--gray);
+}
+
+.customer-bottom a {
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.customer-bottom a::after {
+    content: '';
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid var(--logo-gray);
+    border-radius: 50%;
+    background: url(/coding/images/common/moreview.svg) no-repeat 50%;
+}
+
+.notice-list {
+    padding-top: 4.8rem;
+    display: flex;
+    gap: 2.4rem;
+}
+
+.notice-list li {
+    width: 34.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+
+    position: relative;
+}
+
+.notice-list li:hover dl dt {
+    color: var(--logo-main);
+}
+
+.notice-list li:hover::before {
+    width: 100%;
+    background: var(--logo-main);
+}
+
+.notice-list li::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8rem;
+    height: 0.2rem;
+    background: var(--bk);
+
+    transition: 0.4s;
+}
+
+.notice-link {
+    padding-top: 4.8rem;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.notice-list dl dt {
+    font-size: var(--sub-title-24-size);
+    font-weight: var(--sub-title-24-weight);
+    line-height: var(--sub-title-24-line-height);
+    color: var(--bk);
+
+    transition: 0.4s;
+}
+
+.notice-list dl dd {
+    margin-top: 1.2rem;
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--gray);
+}
+
+.notice-list p {
+    margin-top: 4.8rem;
+    font-size: var(--p-16-size);
+    font-weight: var(--p-16-weight);
+    line-height: var(--p-16-line-height);
+    color: var(--logo-gray);
+}
+
+.notice-list dl dt,
+.notice-list dl dd {
+    white-space: nowrap; /* 줄바꿈 없이 한 줄로 */
+    overflow: hidden; /* 넘치는 내용 숨김 */
+    text-overflow: ellipsis; /* 말줄임표(...) 표시 */
+    display: block; /* 블록 요소로 변경 (inline 기본값이면 ellipsis 안 먹을 수 있음) */
+}
+
+/* //e: customer-center  */
+
+/* //e: main */
